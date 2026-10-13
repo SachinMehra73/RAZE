@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin Mehra | B.Tech ECE - Semiconductor & Chip Design</title>
+  <meta name="description" content="Personal portfolio of Sachin Mehra - B.Tech ECE undergraduate at JECRC University, Jaipur, specializing in Semiconductor & Chip Design, VLSI, Embedded Systems, and Computer Architecture." />
+  <meta name="author" content="Sachin Mehra" />
+  <meta name="keywords" content="Sachin Mehra, Semiconductor, Chip Design, VLSI, Embedded Systems, Computer Architecture, JECRC University, ECE, Jaipur, RAZE, Portfolio" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Sachin Mehra | Semiconductor & Chip Design Portfolio" />
+  <meta property="og:description" content="Explore the projects, skills, and academic journey of Sachin Mehra in Semiconductor & Chip Design at JECRC University." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            silicon: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63',
+              950: '#083344',
+            },
+            circuit: {
+              dark: '#070b14',
+              card: '#0f172a',
+              cardLight: '#ffffff',
+              border: '#1e293b',
+              accent: '#38bdf8',
+              gold: '#fbbf24',
+              neon: '#10b981',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 3s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%': { opacity: 0.4, filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.4))' },
+              '100%': { opacity: 0.9, filter: 'drop-shadow(0 0 25px rgba(6, 182, 212, 0.8))' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#070b14] text-slate-100 transition-colors duration-300 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- Background Canvas for Circuit & Wafer Particles -->
+  <canvas id="circuit-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#070b14]/80 border-b border-slate-800/80" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-1">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 font-heading font-bold text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300">
+          <i data-lucide="cpu" class="w-6 h-6 text-slate-950 stroke-[2.5]"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold tracking-tight text-lg text-white group-hover:text-cyan-400 transition-colors">
+            SACHIN MEHRA
+          </span>
+          <span class="text-xs font-mono text-cyan-400 font-medium tracking-wider flex items-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            CHIP DESIGN &bull; ECE
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#about" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">About</a>
+        <a href="#education" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">Education</a>
+        <a href="#skills" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">Skills</a>
+        <a href="#projects" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">Projects</a>
+        <a href="#achievements" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">Achievements</a>
+        <a href="#contact" class="nav-link px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-slate-800/50 transition-all">Contact</a>
+      </nav>
+
+      <!-- Right Actions: Theme Toggle & Quick CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" aria-label="Toggle Dark/Light Mode" class="p-2.5 rounded-xl border border-slate-700/80 bg-slate-800/40 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+          <i data-lucide="sun" id="sun-icon" class="w-5 h-5 hidden"></i>
+          <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Direct GitHub CTA -->
+        <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-slate-800/90 text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-500/10 hover:shadow-lg hover:shadow-cyan-500/10 transition-all">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>RAZE Repo</span>
+        </a>
+
+        <!-- Let's Talk CTA -->
+        <a href="#contact" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 hover:brightness-110 shadow-md shadow-cyan-500/25 transition-all">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Get in Touch</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="mobile-theme-toggle" aria-label="Toggle Dark/Light Mode" class="p-2 rounded-lg border border-slate-700 bg-slate-800/50 text-slate-300">
+          <i data-lucide="moon" class="w-5 h-5"></i>
+        </button>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="p-2.5 rounded-xl border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-cyan-400 hover:border-cyan-500 focus:outline-none">
+          <i data-lucide="menu" id="hamburger-icon" class="w-6 h-6"></i>
+          <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-[#070b14]/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300">
+      <div class="flex flex-col space-y-2">
+        <a href="#about" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>About Me</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#education" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>Education</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#skills" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>Skills</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#projects" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>Projects</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#achievements" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>Achievements</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/70 hover:text-cyan-400 flex items-center justify-between">
+          <span>Contact Me</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+          <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-sm font-mono text-cyan-300">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            GitHub: SachinMehra73/RAZE
+          </a>
+          <a href="#contact" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold text-sm">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            Contact Sachin Mehra
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="relative z-10 pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <!-- Glow Gradients -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Hero Text Content -->
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+          
+          <!-- Live Status Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-mono shadow-sm backdrop-blur-md animate-fade-in">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span>1st Year B.Tech ECE &bull; Semiconductor & Chip Design</span>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="space-y-2">
+            <h2 class="text-sm sm:text-base font-mono uppercase tracking-widest text-cyan-400 font-semibold">
+              Hello World, I am
+            </h2>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-tight">
+              SACHIN <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">MEHRA</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-medium text-slate-300 pt-1 font-heading">
+              Aspiring Semiconductor & Chip Design Engineer | VLSI & Embedded Systems
+            </p>
+          </div>
+
+          <!-- Short Professional Introduction (Student-friendly & High-impact) -->
+          <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl">
+            Passionate 1st-year B.Tech Electronics & Communication Engineering undergraduate at 
+            <span class="text-cyan-300 font-medium">JECRC University, Jaipur</span>. Deeply fascinated by the architecture of microchips, 
+            silicon fabrication, and computer architecture. Driven to solve real-world engineering problems at the intersection of hardware logic and next-gen intelligent systems.
+          </p>
+
+          <!-- Key Quick Meta Chips -->
+          <div class="flex flex-wrap gap-2.5 pt-1">
+            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/80 text-xs font-mono text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Jaipur, India
+            </span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/80 text-xs font-mono text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-blue-400"></i> JECRC University
+            </span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/80 text-xs font-mono text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i> VLSI & Chip Design
+            </span>
+          </div>
+
+          <!-- Action CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-4 w-full sm:w-auto">
+            <!-- View Projects Button -->
+            <a href="#projects" class="btn-primary flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm sm:text-base">
+              <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+              <span>View Projects</span>
+            </a>
+
+            <!-- Contact Me Button -->
+            <a href="#contact" class="btn-secondary flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-slate-200 bg-slate-800/80 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 hover:bg-slate-800 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm sm:text-base">
+              <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
+              <span>Contact Me</span>
+            </a>
+
+            <!-- GitHub Project Button -->
+            <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="btn-tertiary flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-mono text-xs sm:text-sm text-cyan-300 bg-slate-900/90 border border-cyan-500/40 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>RAZE on GitHub</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-cyan-400"></i>
+            </a>
+          </div>
+
+          <!-- Email Quick Copy Bar -->
+          <div class="pt-2 flex items-center gap-3 text-xs text-slate-400 font-mono">
+            <span>Direct Email:</span>
+            <div class="inline-flex items-center gap-2 bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg">
+              <span class="text-slate-300 selection:bg-cyan-400">sachinmehra00073@gmail.com</span>
+              <button onclick="copyEmailToClipboard()" aria-label="Copy Email" class="text-cyan-400 hover:text-cyan-300 transition-colors p-1" title="Copy to clipboard">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Interactive Chip Graphic / Visual Card -->
+        <div class="lg:col-span-5 flex justify-center items-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Neon Ambient Aura -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur-xl opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+
+            <!-- Silicon Core Card -->
+            <div class="relative bg-slate-900/90 border border-slate-800/90 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+              
+              <!-- Card Header / Die Indicator -->
+              <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                  <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+                  <span class="text-xs font-mono font-semibold tracking-wider text-slate-400 uppercase">DIE: SM-2024-SILICON-V1</span>
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 border border-cyan-800 text-cyan-300 font-bold">
+                  28nm NODE
+                </span>
+              </div>
+
+              <!-- Interactive Simulated Silicon Microchip -->
+              <div class="my-6 relative flex flex-col items-center justify-center p-6 bg-slate-950/80 rounded-xl border border-slate-800/90 overflow-hidden group">
+                <!-- Circuit Trace Background Lines -->
+                <div class="absolute inset-0 bg-[radial-gradient(#155e75_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+
+                <!-- Central Die -->
+                <div class="relative w-36 h-36 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 border-2 border-cyan-400/60 flex flex-col items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:border-cyan-300 group-hover:shadow-cyan-400/40 transition-all duration-500">
+                  <i data-lucide="cpu" class="w-14 h-14 text-cyan-400 mb-1 group-hover:scale-110 transition-transform duration-500"></i>
+                  <span class="text-[11px] font-mono font-bold tracking-widest text-cyan-200">SACHIN.M</span>
+                  <span class="text-[9px] font-mono text-slate-400">VLSI &bull; ECE</span>
+
+                  <!-- Chip Pins (Top, Bottom, Left, Right) -->
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-t"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-t"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-t"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-t"></span>
+                  </div>
+                  <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-b"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-b"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-b"></span>
+                    <span class="w-1 h-2.5 bg-amber-400/80 rounded-b"></span>
+                  </div>
+                  <div class="absolute -left-3 top-1/2 -translate-y-1/2 flex flex-col gap-1.5">
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-l"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-l"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-l"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-l"></span>
+                  </div>
+                  <div class="absolute -right-3 top-1/2 -translate-y-1/2 flex flex-col gap-1.5">
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-r"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-r"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-r"></span>
+                    <span class="h-1 w-2.5 bg-amber-400/80 rounded-r"></span>
+                  </div>
+                </div>
+
+                <!-- Dynamic Pin Telemetry Indicator -->
+                <div class="mt-4 text-center">
+                  <p class="text-xs font-mono text-cyan-400 font-medium">Core Clock: <span id="clock-speed" class="text-white font-bold">3.20 GHz</span></p>
+                  <p class="text-[11px] text-slate-400 font-mono mt-0.5">Architecture: RISC / Digital Logic</p>
+                </div>
+              </div>
+
+              <!-- Silicon Highlights List -->
+              <div class="space-y-3 pt-2">
+                <div class="flex items-center justify-between text-xs font-mono py-1.5 px-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <span class="text-slate-400">Specialization</span>
+                  <span class="text-cyan-300 font-semibold">Semiconductor & Chip Design</span>
+                </div>
+                <div class="flex items-center justify-between text-xs font-mono py-1.5 px-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <span class="text-slate-400">Academic Standing</span>
+                  <span class="text-emerald-400 font-semibold">1st Year Undergrad</span>
+                </div>
+                <div class="flex items-center justify-between text-xs font-mono py-1.5 px-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <span class="text-slate-400">Primary University</span>
+                  <span class="text-slate-200">JECRC University, Jaipur</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Title Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-xs font-mono">
+            <i data-lucide="user" class="w-3.5 h-3.5"></i>
+            <span>GET TO KNOW ME</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            About <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Sachin Mehra</span>
+          </h2>
+          <p class="text-base text-slate-400 leading-relaxed">
+            A fusion of engineering rigor, curious mindset, and passion for the microscopic world of semiconductor silicon.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Narrative / Story Column -->
+          <div class="lg:col-span-7 space-y-5 text-slate-300 leading-relaxed text-base">
+            <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-4">
+              <h3 class="text-xl font-heading font-semibold text-white flex items-center gap-2.5">
+                <i data-lucide="binary" class="w-5 h-5 text-cyan-400"></i>
+                From Silicon Sand to High-Performance Architecture
+              </h3>
+              <p>
+                I am a 1st-year B.Tech undergraduate studying <strong class="text-white">Electronics and Communication Engineering (ECE)</strong> with a focused specialization in <strong class="text-cyan-300">Semiconductor and Chip Design</strong> at <strong class="text-white">JECRC University, Jaipur</strong>.
+              </p>
+              <p>
+                My passion lies at the very bedrock of modern computation: how billions of microscopic transistors collaborate to execute complex instructions in picoseconds. I am deeply interested in <strong class="text-cyan-300">VLSI design, embedded systems, and computer architecture</strong>, with a clear aspiration towards semiconductor manufacturing and IC verification.
+              </p>
+              <p>
+                Beyond textbooks, I firmly believe in <strong class="text-emerald-400">solving real-world problems</strong>. Whether it is debugging low-level logic, building algorithmic prototypes in our repositories like <strong class="text-cyan-300">RAZE</strong>, or exploring how <strong class="text-white">Generative AI</strong> can accelerate hardware design and synthesis, I bring intense curiosity and a strong work ethic to every challenge.
+              </p>
+            </div>
+
+            <!-- Key Principles 3-Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+                <i data-lucide="layers" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                <h4 class="font-heading font-semibold text-white text-sm">VLSI & Chip Design</h4>
+                <p class="text-xs text-slate-400 mt-1">Exploring digital gates, transistor physics, and RTL flows.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+                <i data-lucide="sparkles" class="w-6 h-6 text-blue-400 mb-2"></i>
+                <h4 class="font-heading font-semibold text-white text-sm">GenAI & Innovation</h4>
+                <p class="text-xs text-slate-400 mt-1">Harnessing AI to prototype, explain, and optimize workflows.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+                <i data-lucide="users" class="w-6 h-6 text-emerald-400 mb-2"></i>
+                <h4 class="font-heading font-semibold text-white text-sm">Communication & Lead</h4>
+                <p class="text-xs text-slate-400 mt-1">Storytelling, team synergy, and articulate technical explanation.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Fact Card Column -->
+          <div class="lg:col-span-5">
+            <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-cyan-500/20 shadow-2xl relative overflow-hidden">
+              <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-6 flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+                Profile Snapshot
+              </h3>
+
+              <ul class="space-y-4 text-sm font-mono">
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="user-check" class="w-4 h-4 text-cyan-400"></i> Name
+                  </span>
+                  <span class="text-white font-semibold text-right">SACHIN MEHRA</span>
+                </li>
+
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="award" class="w-4 h-4 text-blue-400"></i> Degree & Role
+                  </span>
+                  <span class="text-white font-semibold text-right">B.Tech Undergrad (1st Year)</span>
+                </li>
+
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i> Specialization
+                  </span>
+                  <span class="text-cyan-300 font-semibold text-right max-w-[200px]">Semiconductor & Chip Design</span>
+                </li>
+
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="school" class="w-4 h-4 text-amber-400"></i> College
+                  </span>
+                  <span class="text-white font-semibold text-right">JECRC University</span>
+                </li>
+
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i> Location
+                  </span>
+                  <span class="text-white font-semibold text-right">Jaipur, Rajasthan, India</span>
+                </li>
+
+                <li class="flex items-start justify-between pb-3 border-b border-slate-800">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i> Email
+                  </span>
+                  <a href="mailto:sachinmehra00073@gmail.com" class="text-cyan-300 hover:underline text-right break-all">
+                    sachinmehra00073@gmail.com
+                  </a>
+                </li>
+
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4 text-purple-400"></i> GitHub
+                  </span>
+                  <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline text-right font-medium">
+                    SachinMehra73/RAZE
+                  </a>
+                </li>
+              </ul>
+
+              <!-- Direct download / contact button -->
+              <div class="mt-6 pt-4 border-t border-slate-800">
+                <a href="#contact" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700/80 text-cyan-300 font-semibold text-xs font-mono border border-slate-700 hover:border-cyan-400 transition-all">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Connect With Sachin</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-800 text-blue-300 text-xs font-mono">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            <span>ACADEMIC FOUNDATION</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            Education & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Specialization</span>
+          </h2>
+          <p class="text-base text-slate-400">
+            Formally training at the frontier of semiconductor engineering and modern electronics at JECRC University.
+          </p>
+        </div>
+
+        <!-- Timeline / Detailed Education Card -->
+        <div class="max-w-4xl mx-auto">
+          <div class="relative pl-6 sm:pl-10 border-l-2 border-cyan-500/40 space-y-12">
+            
+            <!-- Current Degree Node -->
+            <div class="relative group">
+              <!-- Timeline Pip -->
+              <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-cyan-400 shadow-md shadow-cyan-500/50 group-hover:scale-125 transition-transform"></div>
+
+              <!-- Main Card -->
+              <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 shadow-xl transition-all">
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 rounded text-xs font-mono bg-cyan-950 text-cyan-300 border border-cyan-800 font-semibold mb-2">
+                      1st YEAR UNDERGRADUATE (2024 - 2028)
+                    </span>
+                    <h3 class="text-2xl font-heading font-bold text-white">
+                      Bachelor of Technology (B.Tech)
+                    </h3>
+                    <p class="text-cyan-400 font-medium text-base mt-0.5">
+                      Electronics & Communication Engineering (ECE)
+                    </p>
+                  </div>
+                  <div class="text-left sm:text-right">
+                    <span class="text-sm font-semibold text-slate-200 block">JECRC University</span>
+                    <span class="text-xs text-slate-400 font-mono flex items-center sm:justify-end gap-1">
+                      <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Jaipur, Rajasthan
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Specialization Badge Banner -->
+                <div class="my-4 p-4 rounded-xl bg-gradient-to-r from-cyan-950/40 via-blue-950/30 to-transparent border border-cyan-500/30 flex items-start sm:items-center gap-3">
+                  <div class="p-2 rounded-lg bg-cyan-500/20 text-cyan-400 shrink-0">
+                    <i data-lucide="circuit-board" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-white">Formal Specialization: Semiconductor & Chip Design</h4>
+                    <p class="text-xs text-slate-300 mt-0.5">
+                      Tailored academic curriculum focusing on integrated circuit design, silicon fabrication processes, device physics, and microelectronics.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Relevant Learning & Curriculum Highlights -->
+                <div class="mt-4 space-y-3">
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
+                    Core Interests & Relevant Learnings:
+                  </h4>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200 block font-semibold">VLSI & Digital Logic</strong>
+                        <span class="text-slate-400">Boolean algebra, logic minimization, combinational & sequential digital circuits.</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200 block font-semibold">Semiconductor Physics</strong>
+                        <span class="text-slate-400">Solid-state theory, PN junctions, MOSFET operation, silicon wafer manufacturing concepts.</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200 block font-semibold">Computer Architecture</strong>
+                        <span class="text-slate-400">Instruction sets, ALU design, register transfer logic, and pipelining principles.</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200 block font-semibold">Embedded Systems Fundamentals</strong>
+                        <span class="text-slate-400">Microcontroller interfacing, sensor inputs, and hardware-software co-design.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Academic Goal & Value Statement -->
+                <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+                  <i data-lucide="target" class="w-4 h-4 text-cyan-400"></i>
+                  <span>Goal: Pioneering indigenous semiconductor innovation and mastering the complete RTL-to-GDSII flow.</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-xs font-mono">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+            <span>CAPABILITIES & ARSENAL</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            Skills & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400">Competencies</span>
+          </h2>
+          <p class="text-base text-slate-400">
+            A balanced synthesis of technical semiconductor knowledge, cutting-edge AI fluency, and interpersonal leadership.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Category 1: Hardware & Semiconductor Engineering -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 shadow-xl transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-white mb-2">Semiconductor & Hardware</h3>
+              <p class="text-xs text-slate-400 mb-6">Theoretical depth and practical circuits for next-generation silicon design.</p>
+              
+              <div class="space-y-3">
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">VLSI & Digital Logic</span>
+                  <span class="text-cyan-400 font-semibold">Foundational</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Semiconductor Physics</span>
+                  <span class="text-cyan-400 font-semibold">Active Study</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Computer Architecture</span>
+                  <span class="text-cyan-400 font-semibold">ALUs / RISC</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Embedded Systems</span>
+                  <span class="text-cyan-400 font-semibold">Prototyping</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Chip Manufacturing Basics</span>
+                  <span class="text-cyan-400 font-semibold">Fab Flow</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-1.5 text-[11px] font-mono text-cyan-400">
+              <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
+              <span>Hardware-first mindset</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Software, GenAI & Tech Tools -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 shadow-xl transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-white mb-2">Gen AI & Computing</h3>
+              <p class="text-xs text-slate-400 mb-6">Modern computation, algorithmic coding, and AI-accelerated workflows.</p>
+              
+              <div class="space-y-3">
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Generative AI Tools</span>
+                  <span class="text-blue-400 font-semibold">Advanced Prompting</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">C / C++ Basics</span>
+                  <span class="text-blue-400 font-semibold">System Logic</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Git & GitHub</span>
+                  <span class="text-blue-400 font-semibold">Version Control</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Python Basics</span>
+                  <span class="text-blue-400 font-semibold">Scripting</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Algorithmic Problem Solving</span>
+                  <span class="text-blue-400 font-semibold">Real-world Code</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-1.5 text-[11px] font-mono text-blue-400">
+              <i data-lucide="code" class="w-3.5 h-3.5"></i>
+              <span>AI-assisted engineering</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Leadership & Professional Soft Skills -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 shadow-xl transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-110 transition-transform">
+                <i data-lucide="compass" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-white mb-2">Leadership & Mindset</h3>
+              <p class="text-xs text-slate-400 mb-6">Core interpersonal qualities driving successful teamwork and impact.</p>
+              
+              <div class="space-y-3">
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Clear Communication</span>
+                  <span class="text-emerald-400 font-semibold">Technical & Team</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Technical Storytelling</span>
+                  <span class="text-emerald-400 font-semibold">Narrative Impact</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Willingness to Learn</span>
+                  <span class="text-emerald-400 font-semibold">Rapid Assimilation</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Leadership Initiative</span>
+                  <span class="text-emerald-400 font-semibold">Proactive Driver</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span class="text-slate-200">Real-World Problem Solving</span>
+                  <span class="text-emerald-400 font-semibold">Root-cause focus</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              <span>Collaborative excellence</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-xs font-mono">
+            <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+            <span>PORTFOLIO SHOWCASE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">Engineering Projects</span>
+          </h2>
+          <p class="text-base text-slate-400">
+            Showcasing real repositories, hardware architecture simulations, and problem-solving initiatives.
+          </p>
+
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-2 pt-6" id="project-filters">
+            <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-medium border border-cyan-500 bg-cyan-500/20 text-cyan-300 transition-all" data-filter="all">All Projects</button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700 transition-all" data-filter="repo">GitHub Repos</button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700 transition-all" data-filter="chip">Chip Design & VLSI</button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700 transition-all" data-filter="embedded">Embedded & AI</button>
+          </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- PROJECT 1: RAZE (The User's GitHub Repo) -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-cyan-500/40 hover:border-cyan-400 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="repo">
+            <div>
+              <!-- Visual Card Header -->
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="terminal" class="w-36 h-36 text-cyan-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-cyan-950/90 border border-cyan-700 text-cyan-300 font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    FEATURED REPO
+                  </span>
+                  <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" title="View on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                  </a>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-2xl font-heading font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
+                    RAZE
+                  </h3>
+                  <p class="text-xs font-mono text-cyan-400/90 mt-0.5">SachinMehra73 / RAZE</p>
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Flagship software repository by Sachin Mehra engineered for robust modularity, algorithmic execution, and system-level performance.
+                </p>
+                
+                <!-- Tech Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-cyan-300">Git / GitHub</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Modular Architecture</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Problem Solving</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Buttons -->
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold text-xs transition-all hover:brightness-110 shadow-md shadow-cyan-500/20">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span>Open GitHub Repo</span>
+              </a>
+              <button onclick="openProjectModal('raze')" class="px-3 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-cyan-300 hover:bg-slate-750 text-xs font-mono border border-slate-700 transition-colors">
+                Details
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: Digital 4-Bit ALU & Arithmetic Logic Unit -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="chip">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="cpu" class="w-36 h-36 text-blue-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-blue-950/90 border border-blue-700 text-blue-300 font-semibold">
+                    DIGITAL LOGIC / VLSI
+                  </span>
+                  <div class="p-2 rounded-lg bg-slate-800/80 text-blue-400">
+                    <i data-lucide="binary" class="w-4 h-4"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-xl font-heading font-extrabold text-white tracking-tight group-hover:text-blue-300 transition-colors">
+                    4-Bit ALU Architecture
+                  </h3>
+                  <p class="text-xs font-mono text-blue-400/90 mt-0.5">Computer Architecture & Digital Logic</p>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Design and simulation of a 4-bit Arithmetic Logic Unit capable of ADD, SUB, AND, OR, and XOR operations, demonstrating fundamental microprocessor execution.
+                </p>
+                
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-blue-300">Digital Electronics</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Boolean Logic</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Gate Simulation</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <button onclick="openProjectModal('alu')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-400 text-slate-200 hover:text-cyan-300 font-semibold text-xs font-mono transition-all">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>View Architecture Specs</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Microcontroller Embedded Sensor Hub -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="embedded">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="radio" class="w-36 h-36 text-emerald-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-emerald-950/90 border border-emerald-700 text-emerald-300 font-semibold">
+                    EMBEDDED HARDWARE
+                  </span>
+                  <div class="p-2 rounded-lg bg-slate-800/80 text-emerald-400">
+                    <i data-lucide="activity" class="w-4 h-4"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-xl font-heading font-extrabold text-white tracking-tight group-hover:text-emerald-300 transition-colors">
+                    Embedded Sensor Node
+                  </h3>
+                  <p class="text-xs font-mono text-emerald-400/90 mt-0.5">Microcontroller & Interfacing</p>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Real-time embedded telemetry system sampling physical sensor signals with ADC conversion, UART/I2C communication, and low-latency processing.
+                </p>
+                
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-emerald-300">Embedded C</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">ADC / Sensors</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Protocols (UART)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <button onclick="openProjectModal('sensor')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-emerald-400 text-slate-200 hover:text-emerald-300 font-semibold text-xs font-mono transition-all">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>View Circuit Schematic</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 4: GenAI Hardware Synthesizer & Logic Generator -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/40 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="embedded">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="sparkles" class="w-36 h-36 text-purple-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-purple-950/90 border border-purple-700 text-purple-300 font-semibold">
+                    GEN AI & HARDWARE
+                  </span>
+                  <div class="p-2 rounded-lg bg-slate-800/80 text-purple-400">
+                    <i data-lucide="bot" class="w-4 h-4"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-xl font-heading font-extrabold text-white tracking-tight group-hover:text-purple-300 transition-colors">
+                    GenAI RTL Assistant
+                  </h3>
+                  <p class="text-xs font-mono text-purple-400/90 mt-0.5">Prompt Engineering for Logic Synthesizer</p>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Innovative system employing structured Generative AI prompts to generate verified hardware description logic, generate testbenches, and detect design bugs.
+                </p>
+                
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-purple-300">Generative AI</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Prompting</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Hardware Verification</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <button onclick="openProjectModal('genai')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-purple-400 text-slate-200 hover:text-purple-300 font-semibold text-xs font-mono transition-all">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-purple-400"></i>
+                <span>Explore Workflow</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 5: Semiconductor Manufacturing Process Visualizer -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="chip">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="disc" class="w-36 h-36 text-amber-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-950/90 border border-amber-700 text-amber-300 font-semibold">
+                    SILICON FABRICATION
+                  </span>
+                  <div class="p-2 rounded-lg bg-slate-800/80 text-amber-400">
+                    <i data-lucide="layers" class="w-4 h-4"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-xl font-heading font-extrabold text-white tracking-tight group-hover:text-amber-300 transition-colors">
+                    Silicon Foundry Flow
+                  </h3>
+                  <p class="text-xs font-mono text-amber-400/90 mt-0.5">Ingot to Photolithography & Packaging</p>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Interactive reference model detailing the semiconductor manufacturing pipeline: Czochralski crystal growth, wafer slicing, EUV photolithography, and wire-bonding.
+                </p>
+                
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-amber-300">Semiconductor Fab</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Photolithography</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Cleanroom Flow</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <button onclick="openProjectModal('foundry')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-amber-300 font-semibold text-xs font-mono transition-all">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>View Fab Stages</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 6: Collaborative Real-World Problem Solver -->
+          <div class="project-card rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group" data-category="repo">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/60 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden">
+                <div class="absolute right-2 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <i data-lucide="globe" class="w-36 h-36 text-cyan-400"></i>
+                </div>
+                <div class="flex items-center justify-between z-10">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-cyan-950/90 border border-cyan-700 text-cyan-300 font-semibold">
+                    PROBLEM SOLVING
+                  </span>
+                  <div class="p-2 rounded-lg bg-slate-800/80 text-cyan-400">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h3 class="text-xl font-heading font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
+                    Hardware Problem Solver
+                  </h3>
+                  <p class="text-xs font-mono text-cyan-400/90 mt-0.5">Real-World Case Studies & Innovations</p>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Repository of practical engineering case studies applying electronics, telemetry, and structured debugging to solve day-to-day problems.
+                </p>
+                
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-cyan-300">Real-World Eng</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Root-cause Debugging</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300">Design Thinking</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between gap-3">
+              <a href="https://github.com/SachinMehra73" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-400 text-slate-200 hover:text-cyan-300 font-semibold text-xs font-mono transition-all">
+                <i data-lucide="github" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>Explore GitHub Profile</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 border border-amber-800 text-amber-300 text-xs font-mono">
+            <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+            <span>MILESTONES & RECOGNITION</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            Achievements & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">Milestones</span>
+          </h2>
+          <p class="text-base text-slate-400">
+            Dedicated footsteps in the journey toward mastering semiconductor and electronics engineering.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Achievement 1 -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-heading font-bold text-white mb-2">Specialization Admission</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Admitted into specialized B.Tech ECE with Semiconductor & Chip Design cohort at JECRC University, Jaipur.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-amber-400">
+              JECRC University &bull; 2024
+            </div>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="git-pull-request" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-heading font-bold text-white mb-2">Open Source: RAZE</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Created and maintaining the RAZE repository on GitHub, embracing open source and structured version control.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-cyan-400">
+              GitHub Contributor
+            </div>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-heading font-bold text-white mb-2">Student Leadership</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Active technical communication, storytelling, and peer collaboration in university electronics workshops.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-emerald-400">
+              Leadership & Collaboration
+            </div>
+          </div>
+
+          <!-- Achievement 4 -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base font-heading font-bold text-white mb-2">GenAI Hardware Adopter</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Early adopter of Generative AI models for hardware engineering, RTL comprehension, and fast algorithmic prototyping.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-blue-400">
+              AI in Engineering
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-xs font-mono">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>GET IN TOUCH</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+            Contact <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">Sachin Mehra</span>
+          </h2>
+          <p class="text-base text-slate-400">
+            Interested in semiconductor internships, research projects, hardware collaborations, or technical discussion? Let's talk!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Contact Information & Quick Direct Actions -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Direct Email Highlight Box -->
+            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-cyan-500/30 shadow-2xl relative overflow-hidden">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl"></div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-2 flex items-center gap-2">
+                <i data-lucide="send" class="w-5 h-5 text-cyan-400"></i>
+                Direct Channels
+              </h3>
+              <p class="text-xs text-slate-400 mb-6">
+                Feel free to send an email or connect through GitHub. I actively review messages and look forward to learning from industry mentors.
+              </p>
+
+              <div class="space-y-4">
+                <!-- Email Item -->
+                <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start justify-between gap-3">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0 mt-0.5">
+                      <i data-lucide="mail" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Official Email</span>
+                      <a href="mailto:sachinmehra00073@gmail.com" class="text-sm font-semibold text-white hover:text-cyan-400 transition-colors break-all">
+                        sachinmehra00073@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  <button onclick="copyEmailToClipboard()" aria-label="Copy Email" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-cyan-300 hover:bg-slate-700 transition-colors shrink-0" title="Copy to clipboard">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <!-- GitHub Item -->
+                <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start justify-between gap-3">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0 mt-0.5">
+                      <i data-lucide="github" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">GitHub Repository</span>
+                      <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">
+                        github.com/SachinMehra73/RAZE
+                      </a>
+                    </div>
+                  </div>
+                  <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-cyan-300 hover:bg-slate-700 transition-colors shrink-0">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+
+                <!-- Location Item -->
+                <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-red-500/10 text-red-400 shrink-0 mt-0.5">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Location</span>
+                    <span class="text-sm font-semibold text-white block">Jaipur, Rajasthan, India</span>
+                    <span class="text-xs text-slate-400">JECRC University Campus</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Status Pill -->
+              <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2 text-xs font-mono text-emerald-400">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Open for summer internships, semiconductor labs & projects</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xl relative">
+              
+              <h3 class="text-xl font-heading font-bold text-white mb-2">Send a Direct Message</h3>
+              <p class="text-xs text-slate-400 mb-6">
+                Fill in the details below to formulate a direct message to <span class="text-cyan-400">sachinmehra00073@gmail.com</span>.
+              </p>
+
+              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Name Field -->
+                  <div>
+                    <label for="sender-name" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      Your Name <span class="text-cyan-400">*</span>
+                    </label>
+                    <input type="text" id="sender-name" required placeholder="e.g. Dr. Ramesh Kumar / Recruiter" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-600 outline-none transition-all" />
+                  </div>
+
+                  <!-- Email Field -->
+                  <div>
+                    <label for="sender-email" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      Your Email <span class="text-cyan-400">*</span>
+                    </label>
+                    <input type="email" id="sender-email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-600 outline-none transition-all" />
+                  </div>
+                </div>
+
+                <!-- Subject Field -->
+                <div>
+                  <label for="sender-subject" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                    Subject / Topic <span class="text-cyan-400">*</span>
+                  </label>
+                  <input type="text" id="sender-subject" required placeholder="e.g. Semiconductor Internship Opportunity / RAZE Project Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-600 outline-none transition-all" />
+                </div>
+
+                <!-- Message Field -->
+                <div>
+                  <label for="sender-message" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                    Message <span class="text-cyan-400">*</span>
+                  </label>
+                  <textarea id="sender-message" rows="4" required placeholder="Hi Sachin, I noticed your focus on Semiconductor & Chip Design at JECRC University..." class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-600 outline-none transition-all resize-none"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submit-btn" class="w-full flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all text-sm">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Send Message to Sachin</span>
+                </button>
+
+                <p class="text-[11px] font-mono text-center text-slate-500 mt-2">
+                  Opens your email client with message pre-filled to sachinmehra00073@gmail.com
+                </p>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Logo & Bio -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 font-heading font-bold text-lg shadow-md shadow-cyan-500/20">
+          <i data-lucide="cpu" class="w-5 h-5 text-slate-950"></i>
+        </div>
+        <div>
+          <span class="font-heading font-bold text-white text-base">SACHIN MEHRA</span>
+          <p class="text-xs text-slate-400 font-mono">B.Tech ECE &bull; Semiconductor & Chip Design &bull; JECRC University, Jaipur</p>
+        </div>
+      </div>
+
+      <!-- Quick Nav Links in Footer -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="#achievements" class="hover:text-cyan-400 transition-colors">Achievements</a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+
+      <!-- Back to Top Button -->
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/SachinMehra73/RAZE" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition-colors" title="GitHub">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+        <a href="mailto:sachinmehra00073@gmail.com" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition-colors" title="Email">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition-colors" title="Back to top">
+          <i data-lucide="arrow-up" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-slate-900 text-center text-xs text-slate-500 font-mono">
+      &copy; <span id="current-year">2025</span> Sachin Mehra. Designed for high performance. Ready for Vercel deployment.
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl bg-slate-900 border border-cyan-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] animate-scale-up">
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()" class="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="modal-content">
+        <!-- Dynamically populated via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-cyan-950 border border-cyan-500/60 text-cyan-200 text-xs font-mono shadow-2xl">
+      <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+      <span id="toast-message">Email copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
