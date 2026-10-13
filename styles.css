@@ -1,0 +1,182 @@
+/* 
+   Sachin Mehra - Personal Portfolio Stylesheet
+   Semiconductor & Chip Design Aesthetic
+*/
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0e7490;
+}
+
+/* Base smoothing */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Light Mode Overrides when html doesn't have .dark class */
+html:not(.dark) body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html:not(.dark) header {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) header .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .nav-link {
+  color: #475569;
+}
+
+html:not(.dark) .nav-link:hover {
+  color: #0891b2;
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) section {
+  background-color: transparent;
+}
+
+html:not(.dark) #about,
+html:not(.dark) #skills,
+html:not(.dark) #achievements {
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/60,
+html:not(.dark) .bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+html:not(.dark) .bg-slate-950,
+html:not(.dark) .bg-slate-950\/80,
+html:not(.dark) .bg-slate-950\/60 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-800\/80,
+html:not(.dark) .border-slate-800\/90,
+html:not(.dark) .border-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) footer {
+  background-color: #0f172a !important;
+  color: #e2e8f0;
+}
+
+html:not(.dark) footer .text-white {
+  color: #ffffff !important;
+}
+
+html:not(.dark) footer .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Chip Glow Keyframe */
+@keyframes chipPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(6, 182, 212, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.chip-glow {
+  animation: chipPulse 4s infinite ease-in-out;
+}
+
+/* Micro-trace Background Texture */
+.circuit-bg-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(14, 116, 144, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.07) 1px, transparent 1px);
+}
+
+/* Scale Up modal animation */
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s ease-out forwards;
+}
+
+/* Card hover slight lift */
+.project-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Active Nav link highlighting */
+.nav-link.active-link {
+  color: #22d3ee;
+  background-color: rgba(14, 116, 144, 0.15);
+  border-bottom: 2px solid #06b6d4;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 2px;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "sachin-mehra-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio of Sachin Mehra - B.Tech ECE (Semiconductor & Chip Design) at JECRC University, Jaipur",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "build": "echo 'Static portfolio ready for Vercel deployment'"
+  },
+  "keywords": [
+    "portfolio",
+    "semiconductor",
+    "chip-design",
+    "vlsi",
+    "embedded-systems",
+    "ece",
+    "jecrc-university",
+    "sachin-mehra"
+  ],
+  "author": "Sachin Mehra <sachinmehra00073@gmail.com>",
+  "license": "MIT"
+}
